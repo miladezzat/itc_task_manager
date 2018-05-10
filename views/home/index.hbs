@@ -1,0 +1,19 @@
+<div class="row" id="main">
+  <div class="col s12 m7 offset-m2 text-center">
+    <a href="/"><img id="logo" class="responsive-img z-depth-5 circle animated bounceInDown" src="/images/logo.png" alt="Logo"></a>
+    {{# if login}}
+    <h1 class="animated zoomInRight">ITC Task Manager</h1>
+    {{else}}
+    <h1 class="animated slideInLeft">ITC Task Manager</h1>
+    <a class="btn btn-primary animated slideInRight"  href="/companyOwner/login"><i class="fa fa-key"></i> Login </a> <br><br>
+    {{/if}}
+    <br>
+    <div class="fb-share-button animated zoomIn" data-href="https://ensa7ny.herokuapp.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://ittaskmanager.herokuapp.com" class="fb-xfbml-parse-ignore">Share
+      </a>
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

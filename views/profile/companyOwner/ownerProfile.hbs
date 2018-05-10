@@ -1,0 +1,35 @@
+<section id="profile">
+  <div class="p-5">
+    <h4 class="display-4">{{job}}</h4>
+    <hr>
+    <div class="row mt-5">
+      <div class="col-md-3">
+        {{#if user.picture}}
+        <img src="../{{ user.picture }}" alt="userimage" class="image" style="width:70%">
+        {{else}}
+        <img src= "../../images/user.jpg" alt="{{user.fname}}'s image" class="image" style="width:70%">
+        {{/if}}
+      </div>
+      <div class="col-md-8 ml-3">
+        <p id="name" class="lead">{{ user.fname }} {{ user.lname }}</p>
+        <a href="/companyOwner/setting/{{ user._id}}" class="btn btn-warning">Change Account Settings</a>
+        <br>
+        <br>
+        {{#if userRule}}
+        <a href="/companyOwner/employees" class="btn btn-warning">Employees</a>
+        <br>
+        <br>
+        <a class="btn btn-warning"  name="button" href="/companyOwner/addemployee"> Add Employee </a> 
+        <br>
+        <br>
+        <a class="btn btn-warning"  name="button" href="/companyOwner/addproject"> Add Project </a> 
+        <br>
+        <br>
+        <a class="btn btn-warning"  name="button" href="/companyOwner/projects"> Projects </a> 
+        {{/if}}
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</section>

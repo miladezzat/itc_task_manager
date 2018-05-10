@@ -1,0 +1,103 @@
+<section id="projectDetails">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center card-header display-3"> Project Name: {{ project.projectName }} </h1>
+                    <h2 class="card-subtitle mb-4 text-success"> Project Manager: {{ manager.fname }} {{manager.lname}} </h2>
+                    <hr>
+                    <p class="card-text text-primary mb-4 display-4">Start Date Of Project: {{ project.startDate }}</p>
+                    <p class="card-text text-danger mb-4 display-4">End Date Of Project: {{ project.endDate }}</p>
+                    <div id="divider"></div>
+                    {{# if temaMembers }}
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-primary display-4">Team Members</h1>
+                            <div id="divider"></div>
+                        </div>
+                        {{# each temaMembers }}
+                        <div class="col-12 col-md-6">                        
+                            <h4 class="text-success"> {{this.fname}} {{this.lname}} </h4>                        
+                        </div>
+                        {{/ each}}
+                        <div id="divider"></div>
+                    </div>
+                    {{/ if}}
+                    <div class="row">
+                        {{# if projectTasks}}
+                        <div class="col-12">
+                            <h1 class="text-primary display-4">Ptoject Tasks</h1>
+                            <div id="divider"></div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                {{# each projectTasks}}
+                                <div class="col-12 col-md-6">
+                                    <h2>{{this}}</h2>
+                                </div>
+                                {{/ each}}
+                            </div>
+                        </div>
+                        <div id="divider"></div>
+                        {{/ if}}
+                    </div>                    
+                    {{# if tasksofProject}}
+                    <div class="row">
+                        <div class="col-12">                            
+                            <h1 class="text-primary display-4">Tasks Assign To Employees</h1>
+                            <div id="divider"></div>
+                        </div>
+                        <div class="col-3">
+                            <h2 class="text-warning">Employees</h2>
+                        </div>
+                        <div class="col-3">
+                            <h2 class="text-warning">Tasks</h2>
+                        </div>
+                        <div class="col-3">
+                            <h2 class="text-warning">Finshed</h2>
+                        </div>
+                        <div class="col-3">
+                            <h2 class="text-warning">Finshed Date</h2>
+                        </div>
+                        <div id="divider"></div>
+                        {{# each tasksofProject}}
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-3">
+                                    <h3>{{this.employeeName}}</h3>
+                                </div>
+                                <div class="col-3">
+                                    <h3>{{this.taskName}}</h3>
+                                </div>
+                                <div class="col-3">
+                                    <h3>{{this.finshed}}</h3>
+                                </div>
+                                <div class="col-3">
+                                    <h3>{{this.finshedTime}}</h3>
+                                </div>
+                            </div>
+                        </div>                                                
+                        {{/each}}
+                        <div id="divider"></div>                        
+                    </div>
+                    {{/ if}}
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <a href="/employees/addtask/{{project._id}}" class="btn btn-primary pull-left">Assign Tasks</a>
+                        </div>
+                        {{# if projectTasks}}
+                        <div class="col-12 col-md-5">
+                            <a href="/employees/updateTasksProject/{{project._id}}"  class="btn pull-right btn-primary">Update Project Tasks</a>
+                        </div>
+                        {{else}}
+                        <div class="col-12 col-md-5">
+                            <a href="/employees/dividedProject/{{project._id}}"  class="btn pull-right btn-primary">Divided Project to Tasks</a>
+                        </div>
+                        {{/ if}}
+                    </div>
+
+                </div>
+            </div>  
+        </div>
+    </div>
+</section>

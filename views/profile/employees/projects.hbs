@@ -1,0 +1,32 @@
+<section id="users">
+  <div class="container p-5">
+    <h4 class="display-4">Users</h4>
+    <hr>
+    <div class="row mt-5">
+        <table class="table">
+            <thead class="thead-inverse">
+              <tr>
+                <th>#</th>
+                <th>Project Namw</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Details</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{# each projects}}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{this.projectName}}</td>
+                <td>{{this.startDate}}</td>
+                <td>{{this.endDate}}</td>
+                <td><a href="/employees/details/{{ this._id }}" class="btn btn-danger">Details</a></td>
+                <td><a href="/employees/projectUpdate/{{ this._id }}" class="btn btn-danger">Update</a></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+    </div>
+  </div>
+</section>

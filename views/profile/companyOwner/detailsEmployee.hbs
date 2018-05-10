@@ -1,0 +1,86 @@
+<section id="employeeDetails">
+    <div class="row">
+        <div class="col-12">
+            {{# if user}}
+                <h1 class="text-center text-danger display-3">{{user.fname}} {{user.lname}}</h1>
+            {{/if}}
+        </div>
+        <div class="col-12">
+            <h2 class="text-center text-primary h1"> Personal Information</h2>
+            <hr>
+            <div class="row">
+                <div class="col-6 text-info h2" title="username">{{user.username}}</div>
+                <div class="col-6 text-info h2" title="Email">{{user.email}}</div>
+                <div class="col-6 text-info h2" title="Phone Number">{{user.phone}}</div>
+                <div class="col-6 text-info h2" title="Birthday">{{user.birthday}}</div>
+            </div>
+            <div id="divider"></div>
+        </div>
+        <div class="col-12">
+            <h2><span class="text-primary">Employee Position </span>  <span class="text-danger text-uppercase">{{rule.rulename}} </span></h2>
+            <hr>
+        </div>
+        <div class="col-12">
+            <h2>Tasks</h2>
+            <hr>
+        </div>
+        <div class="col-12">
+            {{# if tasks}}
+                <div class="row">
+                    <div class="col-2 text-uppercase text-primary font-weight-bold">Project Name</div>
+                    <div class="col-2 text-uppercase text-primary font-weight-bold">Task Name</div>
+                    <div class="col-2 text-uppercase text-primary font-weight-bold">Start Date</div>
+                    <div class="col-2 text-uppercase text-primary font-weight-bold">End Date</div>
+                    <div class="col-2 text-uppercase text-primary font-weight-bold"> Finshed</div>
+                    <div class="col-2 text-uppercase text-primary font-weight-bold">Finshed Time</div>
+                </div>
+                <div id="divider"></div>
+                <div class="row">
+                    {{# each tasks}}
+                        <div class="col-2 text-success h4">{{this.projectName}}</div>
+                        <div class="col-2 text-success h4">{{this.taskName}}</div>
+                        <div class="col-2 text-success h4">{{this.startDate}}</div>
+                        <div class="col-2 text-success h4">{{this.EndDate}}</div>
+                        <div class="col-2 text-success h4">{{this.finshed}}</div>
+                        {{# if this.finshedTime}}
+                            <div class="col-2 text-success">{{this.finshedTime}}</div>
+                        {{/if}}
+                        <div id="divider"></div>
+                    {{/each}}
+                </div>
+                    <h3>{{this.projectName}}</h3>
+                    <h4>{{this.taskName}}</h4>
+            {{/if}}
+        </div>
+        <div class="col-12">
+            {{# if projects}}
+                <h2 class="text-center text-primary">{{user.fname}} is Project Manager in Following Projects</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="h3 text-danger text-uppercase">Project Name</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="h3 text-danger text-uppercase">Start Date</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="h3 text-danger text-uppercase">End Date</p>
+                    </div>
+                    <div id="divider"></div>
+                    {{# each projects}}
+                        <div class="col-4">
+                            <p class="h3">{{this.projectName}}</p>
+                        </div>
+                        <div class="col-4">
+                            <p class="h3">{{this.startDate}}</p>
+                        </div>
+                        <div class="col-4">
+                            <p class="h3">{{this.endDate}}</p>
+                        </div>
+                        <div id="divider"></div>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</section>

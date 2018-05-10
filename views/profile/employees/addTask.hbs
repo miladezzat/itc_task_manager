@@ -1,0 +1,43 @@
+<section id="updatePage">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center text-success">{{project.projectName }}</h1>
+            <hr>
+            <form action="/employees/addtask" method="post">
+
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <label class="form-control-label">Employee Name</label>
+                  <select class="custom-select" name="employeeId" required>
+                    <option selected disabled>Choose a Employee</option>
+                    {{#each temaMembers}}
+                    <option value="{{this._id}},{{this.fname}},{{this.lname}}">{{this.fname}} {{this.lname}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-control-label">Task Name</label>
+                  <select class="custom-select" name="taskName" required>
+                    <option selected disabled>Task Name</option>
+                    {{#each projectTasks}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+              <input hidden name="projectId" value="{{project._id}}">
+              <input hidden name="projectName" value="{{project.projectName}}">
+              <div class="form-group">
+                <label class="form-control-label">Start Date</label>
+                <input type="date" name="startDate" class="form-control" value="{{ project.startDate}}" required>
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">End Date</label>
+                <input type="date" name="endDate" class="form-control" value="{{ project.endDate}}" required>
+              </div>
+              <hr>
+              <button type="submit" class="btn btn-primary btn-block">Assing Task </button>
+            </form>
+        </div>
+    </div>
+</section>

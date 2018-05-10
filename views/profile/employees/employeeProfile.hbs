@@ -1,0 +1,91 @@
+<section id="profile">
+    <div class="row">
+        <div class="col-12"><h4 class="display-4">{{job}}</h4></div>
+        <div id="divider"></div>
+        <div class="col-12 col-md-3">
+            {{#if user.picture}}
+                <img src="../{{ user.picture }}" alt="userimage" class="image" style="width:70%">
+            {{else}}
+                <img src= "../../images/user.jpg" alt="{{user.fname}}'s image" class="image" style="width:70%">
+            {{/if}}
+        </div>
+        <div class="col-12 col-md-9">
+            <p id="name" class="lead">{{ user.fname }} {{ user.lname }}</p>
+            <a href="/companyOwner/setting/{{ user._id}}" class="btn btn-warning">Change Account Settings</a> <br> <br>
+            <a href="/employees/projects" class="btn btn-warning">Projects</a> <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>Reports & Tasks</h2>
+            <div id="divider"></div>
+        </div>
+        <div class="col-md-6">
+            <a  class="btn btn-outline-success btn-block" onclick="showTasks()">Tasks</a>
+        </div>
+        {{# if isProjectManaget}}
+            <div class="col-md-6">
+                <a class="btn btn-outline-info btn-block" onclick="showReports()">Reports</a>
+            </div>
+        {{/ if}}
+    </div>
+    <div class="row" id="tasks">
+        {{# if tasksofEmployee}}
+            {{# each tasksofEmployee}}
+                <div class="col-12">
+                    <h3 class="text-info">{{this.projectName}} Project</h3>
+                    <div id="divider"></div>
+                    <h4 class="text-success"> Task- {{this.taskName}}</h4>
+                    <p> <span class="text-primary">- Start Time -></span> {{this.startDate}} </p>
+                    <p><span class="text-success">- End Time -></span> {{this.EndDate}}</p>
+                    <p><span class="text-success">- Finshed -></span> {{this.finshed}}</p>
+                    {{# if this.finshedTime}}
+                        <p><span class="text-warning">- Finshed Time -></span>{{this.finshedTime}}</p>
+                    {{/ if}}
+                    <a href="/employees/finshedTask/{{this._id}}" class="btn btn-outline-primary">Finshed Task</a>
+
+                    <hr>
+                </div>
+            {{/ each}}
+        {{/ if}}
+    </div>
+    <div id="reports" class="row">
+        <div class="col-12">
+            <h1 class="text-primary">Tasks & Projects Report</h1>
+            <div id="divider"></div>
+            {{#if tasksOfReports}}
+                {{#each tasksOfReports }}
+                    <div class="row">
+                        <div class="col-12 col-md-3 text-center text-uppercase text-primary"><h3>Project Name</h3></div>
+                        <div class="col-12 col-md-3 text-center text-uppercase text-primary"><h3>Employee Name</h3></div>
+                        <div class="col-12 col-md-3 text-center text-uppercase text-primary"><h3>Task Name</h3></div>
+                        <div class="col-12 col-md-3 text-center text-uppercase text-primary"><h3>Finshed</h3></div>
+                        {{#each this}}
+                            <div class="col-12 col-md-3 text-center text-success"><p>{{this.this.projectName}}</p></div>
+                            <div class="col-12 col-md-3 text-center text-success"><p>{{this.this.employeeName}}</p></div>
+                            <div class="col-12 col-md-3 text-center text-success"><p>{{this.this.taskName}}</p></div>
+                            <div class="col-12 col-md-3 text-center text-success"><p>{{this.this.finshed}}</p></div>
+                        {{/each}}
+                    </div>
+                    <div id="divider"></div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+<script>
+    {{# if isProjectManaget}}
+    {{else}}
+    document.getElementById('reports').style.display="none";
+    document.getElementById('tasks').style.display="block";
+    {{/if}}
+  function showTasks() {
+      document.getElementById('reports').style.display="none";
+      document.getElementById('tasks').style.display="block";
+  }
+  function showReports() {
+      document.getElementById('tasks').style.display = "none";
+      document.getElementById('reports').style.display="block";
+  }
+</script>

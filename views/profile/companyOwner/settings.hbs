@@ -1,0 +1,59 @@
+<section id="settings">
+<div class="container p-5">
+    <div class="row mt-5">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h4 class="text-center">Update Employee</h4>
+            <hr>
+            <form action="/companyOwner/setting/{{ user._id }}" enctype="multipart/form-data" method="post">
+              <div class="form-group">
+                <label class="form-control-label">First Name</label>
+                <input type="text" name="fname" class="form-control" value="{{ user.fname }}">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Last Name</label>
+                <input type="text" name="lname" class="form-control" value="{{ user.lname }}">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Username</label>
+                <input type="text" name="username" class="form-control" value="{{ user.username }}">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Email</label>
+                <input type="email" name="email" class="form-control" value="{{ user.email }}">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Phone</label>
+                <input type="tel" name="phone" class="form-control" value="{{ user.phone }}">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">New Password</label>
+                <input type="password" name="password" class="form-control" >
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Confirm New Password</label>
+                <input type="password" name="password1" class="form-control" >
+              </div>
+              <div class="form-group">
+                <input type="file" name="avatar" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Birthday</label>
+                <input type="date" name="birthday" class="form-control" value="{{ user.birthday }}">
+              </div>
+              <select class="custom-select" name="job" value="{{ user.ruleid }}">
+                <option selected>Choose a job</option>
+                <option value="2">Web Developer</option>
+                <option value="3">Web Designer</option>
+                <option value="4">UI Developer</option>
+              </select>
+              <hr>
+              <button type="submit" class="btn btn-danger btn-block">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

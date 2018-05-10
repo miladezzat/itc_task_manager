@@ -1,0 +1,32 @@
+<section id="updatePage">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center text-success">{{project.projectName }}</h1>
+            <hr>
+            <form action="/employees/projectUpdate/{{project._id}}" method="post">
+              <div class="form-group">
+                <label class="form-control-label">Project Name</label>
+                <input type="text" name="projectName" class="form-control" value="{{ project.projectName }}">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Start Date</label>
+                <input type="date" name="startDate" class="form-control" value="{{ project.startDate}}">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">End Date</label>
+                <input type="date" name="endDate" class="form-control" value="{{ project.endDate}}">
+              </div>
+              <div class="row">
+                {{# each employees}}
+                    <div class="custom-control custom-checkbox col-6 col-md-3">
+                        <input type="checkbox" class="custom-control-input" id="{{this._id}}" name="employees" value="{{this._id}}">
+                        <label class="custom-control-label" for="{{this._id}}">{{ this.fname }}</label>
+                    </div>
+                {{/ each}}
+              </div>
+              <hr>
+              <button type="submit" class="btn btn-primary btn-block">Add Project</button>
+            </form>
+        </div>
+    </div>
+</section>

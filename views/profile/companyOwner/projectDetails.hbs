@@ -1,0 +1,24 @@
+<section id="projectDetails">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center card-header display-3"> Project Name: {{ project.projectName }} </h1>
+                    <h2 class="card-subtitle mb-4 text-success"> Project Manager: {{ manager.fname }} {{manager.lname}} </h2>
+                    <hr>
+                    <p class="card-text text-primary mb-4 display-4">Start Date Of Project: {{ project.startDate }}</p>
+                    <p class="card-text text-danger mb-4 display-4">End Date Of Project: {{ project.endDate }}</p>
+                    {{# if notComplete}}
+                        <p class="card-text text-warning mb-4 display-4">Project Not Complete Yet</p>
+                    {{else}}
+                        <p class="card-text text-success mb-4 display-4">Project Completed </p>
+                    {{/if}}
+                    <div id="divider"></div>
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>  
+        </div>
+    </div>
+</section>

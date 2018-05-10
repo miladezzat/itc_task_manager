@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-12">		
+		<form action="/employees/dividedProject" method="post" id="milad">
+			<input hidden name="projectId" value="{{projectId}}">
+			<div class="form-group">
+				<label class="form-control-label">Task Name</label>
+				<input type="text" name="tasks" id="task" class="form-control" value="" required>
+                <button class="btn btn-warning"> <i class="fa fa-minus"></i> </button>
+			</div>
+			<div class="form-group">
+				<section id="container" />
+			</div>
+			<hr>
+			<div class="form-group">
+    			<button type="button" onclick="newTask()" class="btn btn-primary btn-block" >New Task </button>
+    		</div>
+	        <hr>
+	        <div class="form-group">
+	        	<button type="submit" class="btn btn-primary btn-block" >Assing Task </button>
+			</div>
+	    </form>
+    </div>
+    <div class="col-12 col-md-4 offset-md-4">
+    </div>
+</div>
+
+<script>
+	function newTask() {
+		var container = document.getElementById('container');
+		container.appendChild(document.createTextNode('Task'));
+		var input = document.createElement("input");
+		input.type = "text";
+		input.name = "tasks";
+		input.className = "form-control";
+		container.appendChild(input);
+		container.appendChild(document.createElement("br"));
+
+	}
+</script>

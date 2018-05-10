@@ -1,0 +1,31 @@
+<section id="users">
+  <div class="container p-5">
+    <h4 class="display-4">Users</h4>
+    <hr>
+    <div class="row mt-5">
+        <table class="table">
+            <thead class="thead-inverse">
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Update Employee</th>
+                <th>Delete Employee</th>
+                <th>Details Employee</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{# each users}}
+              <tr>
+                <td>{{this.fname}}</td>
+                <td>{{this.email}}</td>
+                <td><a href="/companyOwner/setting/{{ this._id }}" class="btn btn-warning">Update</a></td>
+                  <td><a href="/companyOwner/deleteEmployee/{{ this._id }}" class="btn btn-danger">Delete</a></td>
+                  <td><a href="/companyOwner/detailsEmployee/{{ this._id }}" class="btn btn-info">Details</a></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+    </div>
+  </div>
+  <a class="btn btn-warning pull-right" href="/companyOwner/addemployee">Add new Employee</a>
+</section>
