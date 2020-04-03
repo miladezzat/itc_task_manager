@@ -1,5 +1,5 @@
 {
-  "name": "agz5ana",
+  "name": "itc_task_manager",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -27,5 +27,18 @@
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.4.5"
-  }
+  },
+  "description": "## what you need 1. node js 2. mongodb 3. git clone https://github.com/miladezzat/itc_task_manager.git 4. cd itc_task_manager 5. npm install",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miladezzat/itc_task_manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miladezzat/itc_task_manager/issues"
+  },
+  "homepage": "https://github.com/miladezzat/itc_task_manager#readme"
 }
